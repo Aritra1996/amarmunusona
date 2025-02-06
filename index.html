@@ -9,19 +9,37 @@
       href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://www.favicon.cc/logo3d/957023.png"
+    />
   </head>
   <body>
     <div class="container">
-      <h1>Will you be my Valentine? 💌</h1>
+      <h1>Will you be my Valentine? <i class="fas fa-heart"></i></h1>
       <div class="buttons">
-        <button class="yes-button" onclick="handleYesClick()">Yes</button>
-        <button class="no-button" onclick="handleNoClick()">No</button>
+        <button class="yes-button" onclick="handleYesClick()">
+          <i class="fas fa-check"></i> Yes
+        </button>
+        <button class="no-button" onclick="handleNoClick()">
+          <i class="fas fa-times"></i> No
+        </button>
       </div>
       <div class="gif_container">
         <img
           src="https://media1.giphy.com/media/VM1fcpu2bKs1e2Kdbj/giphy.gif"
           alt="Cute animated hearts"
         />
+        <div class="icon-group">
+          <i class="fas fa-heartbeat"></i>
+          <i class="fas fa-kiss-wink-heart"></i>
+          <i class="fas fa-hand-holding-heart"></i>
+        </div>
       </div>
     </div>
     <script src="script.js"></script>

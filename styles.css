@@ -109,6 +109,17 @@ button {
   transition: transform 0.3s ease;
 }
 
+.icon-group {
+  margin-top: 1rem;
+  font-size: 2rem;
+  color: #d32f2f;
+}
+
+.icon-group i {
+  margin: 0 10px;
+  animation: float 3s ease-in-out infinite;
+}
+
 @keyframes heartBeat {
   0% {
     transform: scale(1);

@@ -46,17 +46,14 @@ function handleNoClick() {
   noButton.textContent = messages[messageIndex];
   messageIndex = (messageIndex + 1) % messages.length;
 
-  // Add random movement
   noButton.style.transform = `translate(
-        ${Math.random() * 50 - 25}px, 
-        ${Math.random() * 50 - 25}px
-    )`;
+      ${Math.random() * 50 - 25}px, 
+      ${Math.random() * 50 - 25}px
+  )`;
 
-  // Increase yes button size
   const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
   yesButton.style.fontSize = `${currentSize * 1.2}px`;
 
-  // Add heartbeat animation
   yesButton.style.animation = "heartBeat 0.5s";
   setTimeout(() => (yesButton.style.animation = ""), 500);
 }
@@ -70,4 +67,7 @@ function handleYesClick() {
 
 document.addEventListener("DOMContentLoaded", () => {
   createHearts();
+  if (document.querySelector(".header_text")) {
+    createConfetti();
+  }
 });
