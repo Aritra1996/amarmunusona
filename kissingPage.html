@@ -13,28 +13,55 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-    <link rel="shortcut icon" type="x-icon" href="images/kissing.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://www.favicon.cc/logo3d/957023.png"
+    />
   </head>
   <body>
-    <div class="container">
-      <h1 class="header_text"></h1>
-      <div class="gif_container">
-        <img
-          src="https://media4.giphy.com/media/9XY4f3FgFTT4QlaYqa/giphy.gif"
-          alt="Celebration animation"
-        />
-        <div class="celebration-icons">
-          <i class="fas fa-champagne-glasses"></i>
-          <i class="fas fa-ring"></i>
-          <i class="fas fa-heart-circle-plus"></i>
+    <!-- Music Prompt -->
+    <div class="music-prompt" id="musicPrompt">
+      <div class="music-prompt-content">
+        <h2>Would you like to play romantic background music? 🎶</h2>
+        <div class="music-prompt-buttons">
+          <button class="music-prompt-button" onclick="startExperience(true)">
+            <i class="fas fa-check"></i> Yes Please!
+          </button>
+          <button class="music-prompt-button" onclick="startExperience(false)">
+            <i class="fas fa-times"></i> No Thanks
+          </button>
         </div>
       </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+      <!-- Dancing Couple GIF -->
+      <div class="dancing-couple-gif">
+        <img src="/images/ijemy.gif" alt="Dancing Couple" />
+      </div>
+
+      <!-- Header Text -->
+      <h1 class="header_text"></h1>
+
+      <!-- Celebration Icons -->
+      <div class="celebration-icons">
+        <i class="fas fa-champagne-glasses"></i>
+        <i class="fas fa-ring"></i>
+        <i class="fas fa-heart-circle-plus"></i>
+      </div>
+
+      <!-- Message -->
       <p class="message"></p>
     </div>
 
     <!-- Music Player -->
     <audio id="background-music" loop>
-      <source src="love-song.mp3" type="audio/mpeg" />
+      <source
+        src="/songs/Christina Perri - A Thousand Years.mp3"
+        type="audio/mpeg"
+      />
       Your browser does not support audio
     </audio>
 
@@ -51,16 +78,37 @@
     <script>
       // Music Controls
       const audio = document.getElementById("background-music");
-      let isPlaying = false;
+      let musicEnabled = false;
 
-      document.addEventListener("click", function initAudio() {
-        if (!isPlaying) {
+      function startExperience(enableMusic) {
+        // Hide music prompt
+        document.getElementById("musicPrompt").style.display = "none";
+
+        // Show all content
+        document
+          .querySelectorAll(".dancing-couple-gif, .celebration-icons, .message")
+          .forEach((el) => {
+            el.classList.add("visible");
+          });
+
+        // Handle music
+        if (enableMusic) {
+          musicEnabled = true;
           audio.play().catch(() => {});
-          isPlaying = true;
           document.getElementById("music-text").textContent = "Music: On";
+
+          // Enhance dancing animation
+          document.querySelector(".dancing-couple-gif").style.animation =
+            "float 3s ease-in-out infinite, dance 2s ease-in-out infinite";
+        } else {
+          document.getElementById("music-text").textContent = "Music: Off";
+          audio.pause();
+
+          // Simpler animation without music
+          document.querySelector(".dancing-couple-gif").style.animation =
+            "float 3s ease-in-out infinite";
         }
-        document.removeEventListener("click", initAudio);
-      });
+      }
 
       function toggleMusic() {
         if (audio.paused) {
@@ -111,6 +159,9 @@
           container.appendChild(confetti);
         }
         document.body.appendChild(container);
+
+        // Show music prompt immediately
+        document.getElementById("musicPrompt").style.display = "flex";
       });
     </script>
   </body>
