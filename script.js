@@ -61,7 +61,7 @@ function handleNoClick() {
 function handleYesClick() {
   createConfetti();
   setTimeout(() => {
-    window.location.href = "yes_page.html";
+    window.location.href = "kissingPage.html";
   }, 1000);
 }
 
