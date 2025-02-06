@@ -1,3 +1,35 @@
+// Music Controls
+const audio = document.getElementById("background-music");
+let isPlaying = false;
+
+// Initialize audio on first user interaction
+document.addEventListener("click", function initAudio() {
+  if (!isPlaying) {
+    audio.play().catch(() => {});
+    isPlaying = true;
+    document.getElementById("music-text").textContent = "Music: On";
+  }
+  document.removeEventListener("click", initAudio);
+});
+
+function toggleMusic() {
+  if (audio.paused) {
+    audio.play();
+    document.getElementById("music-text").textContent = "Music: On";
+  } else {
+    audio.pause();
+    document.getElementById("music-text").textContent = "Music: Off";
+  }
+}
+
+function toggleMute() {
+  audio.muted = !audio.muted;
+  document.getElementById("mute-icon").className = audio.muted
+    ? "fas fa-volume-mute"
+    : "fas fa-volume-up";
+}
+
+// Original Valentine Code
 const messages = [
   "Are you sure?",
   "Really sure??",
@@ -26,19 +58,6 @@ function createHearts() {
   document.body.appendChild(container);
 }
 
-function createConfetti() {
-  const container = document.createElement("div");
-  for (let i = 0; i < 100; i++) {
-    const confetti = document.createElement("div");
-    confetti.className = "confetti";
-    confetti.style.left = Math.random() * 100 + "vw";
-    confetti.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
-    confetti.style.animationDelay = Math.random() * 2 + "s";
-    container.appendChild(confetti);
-  }
-  document.body.appendChild(container);
-}
-
 function handleNoClick() {
   const noButton = document.querySelector(".no-button");
   const yesButton = document.querySelector(".yes-button");
@@ -47,9 +66,9 @@ function handleNoClick() {
   messageIndex = (messageIndex + 1) % messages.length;
 
   noButton.style.transform = `translate(
-      ${Math.random() * 50 - 25}px, 
-      ${Math.random() * 50 - 25}px
-  )`;
+        ${Math.random() * 50 - 25}px, 
+        ${Math.random() * 50 - 25}px
+    )`;
 
   const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
   yesButton.style.fontSize = `${currentSize * 1.2}px`;
@@ -59,7 +78,6 @@ function handleNoClick() {
 }
 
 function handleYesClick() {
-  createConfetti();
   setTimeout(() => {
     window.location.href = `kissingPage.html?from=Induranga&to=Thisuri`;
   }, 1000);

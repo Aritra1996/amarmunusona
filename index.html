@@ -17,7 +17,7 @@
   </head>
   <body>
     <div class="container">
-      <h1>Patiyo, will you be my Valentine? <i class="fas fa-heart"></i></h1>
+      <h1>Patiyooo, will you be my Valentine? <i class="fas fa-heart"></i></h1>
       <div class="buttons">
         <button class="yes-button" onclick="handleYesClick()">
           <i class="fas fa-check"></i> Yes
@@ -38,6 +38,23 @@
         </div>
       </div>
     </div>
+
+    <!-- Music Player -->
+    <audio id="background-music" loop>
+      <source src="love-song.mp3" type="audio/mpeg" />
+      Your browser does not support audio
+    </audio>
+
+    <div class="music-controls">
+      <button onclick="toggleMusic()">
+        <i class="fas fa-music"></i>
+        <span id="music-text">Play Music</span>
+      </button>
+      <button onclick="toggleMute()">
+        <i id="mute-icon" class="fas fa-volume-up"></i>
+      </button>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>

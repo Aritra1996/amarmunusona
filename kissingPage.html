@@ -31,7 +31,55 @@
       </div>
       <p class="message"></p>
     </div>
+
+    <!-- Music Player -->
+    <audio id="background-music" loop>
+      <source src="love-song.mp3" type="audio/mpeg" />
+      Your browser does not support audio
+    </audio>
+
+    <div class="music-controls">
+      <button onclick="toggleMusic()">
+        <i class="fas fa-music"></i>
+        <span id="music-text">Play Music</span>
+      </button>
+      <button onclick="toggleMute()">
+        <i id="mute-icon" class="fas fa-volume-up"></i>
+      </button>
+    </div>
+
     <script>
+      // Music Controls
+      const audio = document.getElementById("background-music");
+      let isPlaying = false;
+
+      document.addEventListener("click", function initAudio() {
+        if (!isPlaying) {
+          audio.play().catch(() => {});
+          isPlaying = true;
+          document.getElementById("music-text").textContent = "Music: On";
+        }
+        document.removeEventListener("click", initAudio);
+      });
+
+      function toggleMusic() {
+        if (audio.paused) {
+          audio.play();
+          document.getElementById("music-text").textContent = "Music: On";
+        } else {
+          audio.pause();
+          document.getElementById("music-text").textContent = "Music: Off";
+        }
+      }
+
+      function toggleMute() {
+        audio.muted = !audio.muted;
+        document.getElementById("mute-icon").className = audio.muted
+          ? "fas fa-volume-mute"
+          : "fas fa-volume-up";
+      }
+
+      // Page Content
       document.addEventListener("DOMContentLoaded", () => {
         const urlParams = new URLSearchParams(window.location.search);
         const fromName = urlParams.get("from") || "Induranga";
