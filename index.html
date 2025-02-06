@@ -16,6 +16,22 @@
     <link rel="shortcut icon" type="x-icon" href="icons/heart.ico" />
   </head>
   <body>
+    <!-- Music Prompt -->
+    <div class="music-prompt" id="musicPrompt">
+      <div class="music-prompt-content">
+        <h2>Would you like to play romantic background music? 🎶</h2>
+        <div class="music-prompt-buttons">
+          <button class="music-prompt-button" onclick="startExperience(true)">
+            <i class="fas fa-check"></i> Yes Please!
+          </button>
+          <button class="music-prompt-button" onclick="startExperience(false)">
+            <i class="fas fa-times"></i> No Thanks
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
     <div class="container">
       <h1>Patiyooo, will you be my Valentine? <i class="fas fa-heart"></i></h1>
       <div class="buttons">
@@ -27,6 +43,7 @@
         </button>
       </div>
       <div class="gif_container">
+        <div class="hearts-overlay"></div>
         <img src="images/flowerBoy.gif" alt="Cute animated hearts" />
         <div class="icon-group">
           <i class="fas fa-heartbeat"></i>
@@ -38,7 +55,7 @@
 
     <!-- Music Player -->
     <audio id="background-music" loop>
-      <source src="love-song.mp3" type="audio/mpeg" />
+      <source src="songs/Jai Waetford - Shy.mp3" type="audio/mpeg" />
       Your browser does not support audio
     </audio>
 

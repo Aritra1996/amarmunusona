@@ -83,4 +83,46 @@ function handleYesClick() {
   }, 1000);
 }
 
-document.addEventListener("DOMContentLoaded", createHearts);
+// Heart animation for GIF container
+function createContainerHearts() {
+  const container = document.querySelector(".hearts-overlay");
+
+  function createHeart() {
+    const heart = document.createElement("i");
+    heart.className = "fas fa-heart heart-bubble";
+    heart.style.left = Math.random() * 100 + "%";
+    heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+    heart.style.fontSize = Math.random() * 10 + 15 + "px";
+
+    container.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 4000);
+  }
+
+  setInterval(createHeart, 1000);
+}
+
+// Start experience after music prompt
+function startExperience(enableMusic) {
+  // Hide music prompt
+  document.getElementById("musicPrompt").style.display = "none";
+
+  // Show all content
+  document.querySelector(".container").style.display = "block";
+
+  // Handle music
+  if (enableMusic) {
+    audio.play().catch(() => {});
+    document.getElementById("music-text").textContent = "Music: On";
+  } else {
+    document.getElementById("music-text").textContent = "Music: Off";
+    audio.pause();
+  }
+}
+
+// Initialize
+document.addEventListener("DOMContentLoaded", () => {
+  createHearts();
+  createContainerHearts();
+  document.querySelector(".container").style.display = "none"; // Hide content initially
+});
