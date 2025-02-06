@@ -16,6 +16,9 @@
     <link rel="shortcut icon" type="x-icon" href="images/kissing.ico" />
   </head>
   <body>
+    <!-- Heart Rain Effect -->
+    <div class="heart-rain"></div>
+
     <!-- Music Prompt -->
     <div class="music-prompt" id="musicPrompt">
       <div class="music-prompt-content">
@@ -123,6 +126,32 @@
           : "fas fa-volume-up";
       }
 
+      // Heart Rain Effect
+      function createHeartRain() {
+        const heartRain = document.querySelector(".heart-rain");
+
+        function createHeart() {
+          const heart = document.createElement("i");
+          heart.className = "fas fa-heart heart";
+          heart.style.left = Math.random() * 100 + "vw";
+          heart.style.animationDuration = Math.random() * 3 + 2 + "s"; // 2-5 seconds
+          heart.style.animationDelay = Math.random() * 2 + "s";
+
+          heartRain.appendChild(heart);
+
+          // Remove heart after animation
+          setTimeout(() => heart.remove(), 5000);
+        }
+
+        // Create hearts at intervals
+        setInterval(createHeart, 300);
+
+        // Initial hearts
+        for (let i = 0; i < 10; i++) {
+          setTimeout(createHeart, Math.random() * 1000);
+        }
+      }
+
       // Page Content
       document.addEventListener("DOMContentLoaded", () => {
         const urlParams = new URLSearchParams(window.location.search);
@@ -155,6 +184,9 @@
           container.appendChild(confetti);
         }
         document.body.appendChild(container);
+
+        // Start heart rain
+        createHeartRain();
 
         // Show music prompt immediately
         document.getElementById("musicPrompt").style.display = "flex";
