@@ -1,7 +1,7 @@
 const messages = [
   "Are you sure?",
   "Really sure??",
-  "Think again!",
+  "Think again Thisuri!",
   "Please reconsider!",
   "Don't do this to me!",
   "I'll be heartbroken...",
@@ -61,13 +61,8 @@ function handleNoClick() {
 function handleYesClick() {
   createConfetti();
   setTimeout(() => {
-    window.location.href = "kissingPage.html";
+    window.location.href = `kissingPage.html?from=Induranga&to=Thisuri`;
   }, 1000);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  createHearts();
-  if (document.querySelector(".header_text")) {
-    createConfetti();
-  }
-});
+document.addEventListener("DOMContentLoaded", createHearts);

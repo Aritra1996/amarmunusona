@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Happy Valentine's Day!</title>
+    <title>Yes! Thisuri x Induranga</title>
     <link rel="stylesheet" href="kissingPage_style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
@@ -17,9 +17,7 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="header_text">
-        Hooray! You said YES! <i class="fas fa-heart-circle-check"></i>
-      </h1>
+      <h1 class="header_text"></h1>
       <div class="gif_container">
         <img
           src="https://media4.giphy.com/media/9XY4f3FgFTT4QlaYqa/giphy.gif"
@@ -31,13 +29,41 @@
           <i class="fas fa-heart-circle-plus"></i>
         </div>
       </div>
-      <p class="message">
-        <i class="fas fa-star"></i> You've made me the happiest person in the
-        world! <i class="fas fa-star"></i><br />
-        Let's make wonderful memories together!
-        <i class="fas fa-glass-cheers"></i>
-      </p>
+      <p class="message"></p>
     </div>
-    <script src="script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const fromName = urlParams.get("from") || "Induranga";
+        const toName = urlParams.get("to") || "Thisuri";
+
+        document.title = `${fromName} ❤️ ${toName} | Valentine's Day`;
+
+        document.querySelector(".header_text").innerHTML = `
+                Hooray ${toName}!<br>
+                You said YES to ${fromName}! <i class="fas fa-heart-circle-check"></i>
+            `;
+
+        document.querySelector(".message").innerHTML = `
+                <i class="fas fa-star"></i> 
+                Dear ${toName}, you've made ${fromName} the happiest person in the world! 
+                <i class="fas fa-star"></i><br>
+                Let's create beautiful memories together! 
+                <i class="fas fa-glass-cheers"></i>
+            `;
+
+        // Create confetti
+        const container = document.createElement("div");
+        for (let i = 0; i < 100; i++) {
+          const confetti = document.createElement("div");
+          confetti.className = "confetti";
+          confetti.style.left = Math.random() * 100 + "vw";
+          confetti.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+          confetti.style.animationDelay = Math.random() * 2 + "s";
+          container.appendChild(confetti);
+        }
+        document.body.appendChild(container);
+      });
+    </script>
   </body>
 </html>
