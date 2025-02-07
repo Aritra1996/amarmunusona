@@ -33,7 +33,7 @@ function toggleMute() {
 const messages = [
   "Are you sure?",
   "Really sure??",
-  "Think again Thisuri!",
+  "Think again Patiyoo!",
   "Please reconsider!",
   "Don't do this to me!",
   "I'll be heartbroken...",
