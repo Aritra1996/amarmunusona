@@ -1,6 +1,14 @@
 // Music Controls
 const audio = document.getElementById("background-music");
-let musicEnabled = false;
+
+const urlParams = new URLSearchParams(window.location.search);
+const musicEnabled = urlParams.get("musicEnabled") === "true";
+
+if (musicEnabled) {
+  // Play music on the next page
+  const audio = document.getElementById("background-music");
+  audio.play();
+}
 
 function startExperience(enableMusic) {
   // Hide music prompt

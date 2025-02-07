@@ -78,8 +78,9 @@ function handleNoClick() {
 }
 
 function handleYesClick() {
+  const musicEnabled = !audio.paused; // Check if music is playing
   setTimeout(() => {
-    window.location.href = `kissingPage.html?from=Induranga&to=Thisuri`;
+    window.location.href = `kissingPage.html?from=Induranga&to=Thisuri&musicEnabled=${musicEnabled}`;
   }, 1000);
 }
 
