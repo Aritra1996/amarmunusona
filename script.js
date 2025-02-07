@@ -1,20 +1,12 @@
-// Music Controls
 const audio = document.getElementById("background-music");
 let isPlaying = false;
 
-// Initialize audio on first user interaction
-document.addEventListener("click", function initAudio() {
-  if (!isPlaying) {
-    audio.play().catch(() => {});
-    isPlaying = true;
-    document.getElementById("music-text").textContent = "Music: On";
-  }
-  document.removeEventListener("click", initAudio);
-});
-
 function toggleMusic() {
   if (audio.paused) {
-    audio.play();
+    audio.play().catch((error) => {
+      console.error("Audio playback failed:", error);
+      alert("Please interact with the page to enable music playback.");
+    });
     document.getElementById("music-text").textContent = "Music: On";
   } else {
     audio.pause();
@@ -105,6 +97,7 @@ function createContainerHearts() {
 
 // Start experience after music prompt
 function startExperience(enableMusic) {
+  console.log("Starting experience with music:", enableMusic);
   // Hide music prompt
   document.getElementById("musicPrompt").style.display = "none";
 

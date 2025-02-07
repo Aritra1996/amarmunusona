@@ -1,43 +1,30 @@
 // Music Controls
 const audio = document.getElementById("background-music");
 
+document
+  .querySelectorAll(".dancing-couple-gif, .celebration-icons, .message")
+  .forEach((el) => {
+    el.classList.add("visible");
+  });
+
 const urlParams = new URLSearchParams(window.location.search);
 const musicEnabled = urlParams.get("musicEnabled") === "true";
 
 if (musicEnabled) {
   // Play music on the next page
-  const audio = document.getElementById("background-music");
-  audio.play();
-}
+  audio.play().catch(() => {});
+  document.getElementById("music-text").textContent = "Music: On";
 
-function startExperience(enableMusic) {
-  // Hide music prompt
-  document.getElementById("musicPrompt").style.display = "none";
+  // Enhance dancing animation
+  document.querySelector(".dancing-couple-gif").style.animation =
+    "float 3s ease-in-out infinite, dance 2s ease-in-out infinite";
+} else {
+  document.getElementById("music-text").textContent = "Music: Off";
+  audio.pause();
 
-  // Show all content
-  document
-    .querySelectorAll(".dancing-couple-gif, .celebration-icons, .message")
-    .forEach((el) => {
-      el.classList.add("visible");
-    });
-
-  // Handle music
-  if (enableMusic) {
-    musicEnabled = true;
-    audio.play().catch(() => {});
-    document.getElementById("music-text").textContent = "Music: On";
-
-    // Enhance dancing animation
-    document.querySelector(".dancing-couple-gif").style.animation =
-      "float 3s ease-in-out infinite, dance 2s ease-in-out infinite";
-  } else {
-    document.getElementById("music-text").textContent = "Music: Off";
-    audio.pause();
-
-    // Simpler animation without music
-    document.querySelector(".dancing-couple-gif").style.animation =
-      "float 3s ease-in-out infinite";
-  }
+  // Simpler animation without music
+  document.querySelector(".dancing-couple-gif").style.animation =
+    "float 3s ease-in-out infinite";
 }
 
 function toggleMusic() {
