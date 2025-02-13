@@ -7,8 +7,10 @@ body {
   background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
   font-family: "Great Vibes", cursive;
   overflow: hidden;
-  position: relative;
+  position: absolute;
 }
+
+html { overflow-y: scroll; }
 
 .container {
   text-align: center;
