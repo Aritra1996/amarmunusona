@@ -23,16 +23,15 @@ function toggleMute() {
 
 // Original Valentine Code
 const messages = [
-  "Are you sure?",
-  "Really sure??",
-  "Think again Patiyoo!",
-  "Please reconsider!",
-  "Don't do this to me!",
-  "I'll be heartbroken...",
-  "You're breaking my heart!",
-  "Last chance!",
-  "Okay, I'll stop...",
-  "Just kidding, SAY YES! 💖",
+  "পাক্কা ?",
+  "একদম পাক্কা ??",
+  "আরও একটু ভাবো মুনু !",
+  "ভেবেচিন্তে দেখো !",
+  "এরকম করো না আমার সাথে!",
+  "আমার হৃদয় ভেঙে টুকরো টুকরো হয়ে গেল গো !",
+  "শেষ সুযোগ !",
+  "টাটা...",
+  "ওরম মনে হয়, এখনো না ? 💖",
 ];
 
 let messageIndex = 0;
@@ -72,7 +71,7 @@ function handleNoClick() {
 function handleYesClick() {
   const musicEnabled = !audio.paused; // Check if music is playing
   setTimeout(() => {
-    window.location.href = `kissingPage.html?from=Induranga&to=Thisuri&musicEnabled=${musicEnabled}`;
+    window.location.href = `kissingPage.html?from=Aritra&to=Diamond&musicEnabled=${musicEnabled}`;
   }, 1000);
 }
 
@@ -107,9 +106,7 @@ function startExperience(enableMusic) {
   // Handle music
   if (enableMusic) {
     audio.play().catch(() => {});
-    document.getElementById("music-text").textContent = "Music: On";
   } else {
-    document.getElementById("music-text").textContent = "Music: Off";
     audio.pause();
   }
 }

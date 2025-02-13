@@ -13,8 +13,6 @@ const musicEnabled = urlParams.get("musicEnabled") === "true";
 if (musicEnabled) {
   // Play music on the next page
   audio.play().catch(() => {});
-  document.getElementById("music-text").textContent = "Music: On";
-
   // Enhance dancing animation
   document.querySelector(".dancing-couple-gif").style.animation =
     "float 3s ease-in-out infinite, dance 2s ease-in-out infinite";
@@ -73,21 +71,24 @@ function createHeartRain() {
 // Page Content
 document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
-  const fromName = urlParams.get("from") || "Induranga";
-  const toName = urlParams.get("to") || "Thisuri";
+  const fromName = urlParams.get("from") || "Aritra";
+  const toName = urlParams.get("to") || "Diamond";
 
   document.title = `${fromName} ❤️ ${toName} | Valentine's Day`;
 
   document.querySelector(".header_text").innerHTML = `
-                Hooray ${toName}!<br>
-                You said YES to ${fromName}! <i class="fas fa-heart-circle-check"></i>
+                কিছু ইচ্ছা,কিছু আশা,<br>
+                তোমার সাথেই ভালোবাসা।
+                কিছু স্বপ্ন,কিছু গল্প,<br>
+                এখনো লেখা বাকি অল্প।
             `;
 
   document.querySelector(".message").innerHTML = `
-                <i class="fas fa-star"></i> 
-                Dear ${toName}, you've made ${fromName} the happiest person in the world! 
                 <i class="fas fa-star"></i><br>
-                Let's create beautiful memories together! 
+                হৃদয়ে আমার সারাটি ক্ষন
+                ঝরছে প্রেমের বৃষ্টি,,
+                কেমন করে বোঝাই তোমায়
+                প্রিয়তমা মিষ্টি।<br>
                 <i class="fas fa-glass-cheers"></i>
             `;
 
@@ -107,5 +108,5 @@ document.addEventListener("DOMContentLoaded", () => {
   createHeartRain();
 
   // Show music prompt immediately
-  document.getElementById("musicPrompt").style.display = "flex";
+
 });
