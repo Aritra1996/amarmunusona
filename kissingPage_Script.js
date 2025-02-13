@@ -76,22 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.title = `${fromName} ❤️ ${toName} | Valentine's Day`;
 
-  document.querySelector(".header_text").innerHTML = `
-                কিছু ইচ্ছা,কিছু আশা,<br>
-                তোমার সাথেই ভালোবাসা।
-                কিছু স্বপ্ন,কিছু গল্প,<br>
-                এখনো লেখা বাকি অল্প।
-            `;
-
-  document.querySelector(".message").innerHTML = `
-                <i class="fas fa-star"></i><br>
-                হৃদয়ে আমার সারাটি ক্ষন
-                ঝরছে প্রেমের বৃষ্টি,,
-                কেমন করে বোঝাই তোমায়
-                প্রিয়তমা মিষ্টি।<br>
-                <i class="fas fa-glass-cheers"></i>
-            `;
-
   // Create confetti
   const container = document.createElement("div");
   for (let i = 0; i < 100; i++) {
