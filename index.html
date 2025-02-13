@@ -19,13 +19,10 @@
     <!-- Music Prompt -->
     <div class="music-prompt" id="musicPrompt">
       <div class="music-prompt-content">
-        <h2>Would you like to play romantic background music? 🎶</h2>
+        <h2>একটা রোমান্টিক মিউজিক হয়ে যাক ? 🎶</h2>
         <div class="music-prompt-buttons">
           <button class="music-prompt-button" onclick="startExperience(true)">
-            <i class="fas fa-check"></i> Yes Please!
-          </button>
-          <button class="music-prompt-button" onclick="startExperience(false)">
-            <i class="fas fa-times"></i> No Thanks
+            <i class="fas fa-check"></i> না, একদম না 
           </button>
         </div>
       </div>
@@ -33,13 +30,13 @@
 
     <!-- Main Content -->
     <div class="container">
-      <h1>Patiyooo, will you be my Valentine? <i class="fas fa-heart"></i></h1>
+      <h1>মুনুসোনা, আমার valentine হবে ? <i class="fas fa-heart"></i></h1>
       <div class="buttons">
         <button class="yes-button" onclick="handleYesClick()">
-          <i class="fas fa-check"></i> Yes
+          <i class="fas fa-check"></i> হ্যাঁ গো
         </button>
         <button class="no-button" onclick="handleNoClick()">
-          <i class="fas fa-times"></i> No
+          <i class="fas fa-times"></i> না না একদম না
         </button>
       </div>
       <div class="gif_container">
@@ -55,19 +52,9 @@
 
     <!-- Music Player -->
     <audio id="background-music" loop>
-      <source src="songs/Jai Waetford - ShyPart01.mp3" type="audio/mpeg" />
+      <source src="songs/tomake-chai.mp3" type="audio/mpeg" />
       Your browser does not support audio
     </audio>
-
-    <div class="music-controls">
-      <button onclick="toggleMusic()">
-        <i class="fas fa-music"></i>
-        <span id="music-text">Play Music</span>
-      </button>
-      <button onclick="toggleMute()">
-        <i id="mute-icon" class="fas fa-volume-up"></i>
-      </button>
-    </div>
 
     <script src="script.js"></script>
   </body>
